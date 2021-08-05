@@ -14,7 +14,7 @@ const optionbutton = "div > div > div.content > div.pane__header-bottom > div.pa
 const deletebutton = "div > div > div.content > div.pane__header-bottom > div.pane__header-bottom-right > div > div > div:nth-child(3)"
 const editbutton = "div > div > div.content > div.pane__header-bottom > div.pane__header-bottom-right > div > button:nth-child(1)"
 const artdata = require("../../../fixtures/Userdata/artistdata.json")
-const savebutton1= ".buttons > .btn-primary"
+const savebutton1 = ".buttons > .btn-primary"
 export class artists {
     artistspage() {
         cy.get(artiststab).click()
@@ -22,8 +22,6 @@ export class artists {
     }
 
     createartist() {
-
-        cy.get(newartist).click()
         cy.get(name).type(artdata.name)
         cy.get(legalname).type(artdata.legalname)
         cy.get(ipi).type(artdata.ipi)
@@ -31,6 +29,18 @@ export class artists {
         cy.get(country).type(artdata.country)
         cy.get('.css-dt48ek').click()
         cy.get(notes).type(artdata.notes)
+        cy.get(savebutton).click()
+
+    }
+
+    createartist1() {
+        cy.get(name).type(artdata.name1)
+        cy.get(legalname).type(artdata.legalname1)
+        cy.get(ipi).type(artdata.ipi1)
+        cy.get(isni).type(artdata.isni1)
+        cy.get(country).type(artdata.country2)
+        cy.get('.css-dt48ek').click()
+        cy.get(notes).type(artdata.notes1)
         cy.get(savebutton).click()
     }
 

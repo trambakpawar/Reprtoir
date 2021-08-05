@@ -4,7 +4,7 @@ import { artists } from "../../pageObjects/contributors/artists"
 const lp = new login()
 const art = new artists()
 const artdata = require("../../../fixtures/Userdata/artistdata.json")
-
+const create = "#pane-list > div > div > div.content > div > div > div > div > div > div.description > div.actions > a.btn.btn-primary"
 
 Given(/^I login into system and goto artists page$/, function () {
     lp.login()
@@ -12,7 +12,18 @@ Given(/^I login into system and goto artists page$/, function () {
 });
 
 When(/^I filled all the artists data$/, function () {
-    art.createartist()
+    cy.get("#pane-list > div > div > div.content > div > div.pane-tab-content-center").then(($btn) => {
+        if ($btn.text().includes('Create an Artist')) {
+            cy.log("New user")
+            cy.get(create).click()
+            art.createartist()
+        }
+        else {
+            cy.log("All ready user")
+
+        }
+
+    })
 });
 
 
@@ -46,3 +57,4 @@ Then(/^Artists should get displayed$/, function () {
     cy.screenshot()
     lp.logout()
 });
+

@@ -2,5 +2,13 @@
     "defaultCommandTimeout": 30000,
     "requestTimeout": 60000,
     "pageLoadTimeout": 120000,
-    "testFiles": "**/**.feature"
+    "testFiles": "**/**.feature",
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": true,
+        "html": true,
+        "json": false,
+        "timestamp": "mmddyyyy_HHMMss"
+    }
 }

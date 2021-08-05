@@ -1,5 +1,6 @@
 Feature: Check the Artists Page in Contributor
 
+
 Scenario: Add the artists
  Given I login into system and goto artists page
   When I filled all the artists data
